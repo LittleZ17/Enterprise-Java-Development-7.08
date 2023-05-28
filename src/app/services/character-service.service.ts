@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Character } from '../interfaces/character';
-import { Observable } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root' 
@@ -27,6 +27,7 @@ export class CharacterServiceService {
   }
 
   deleteCharacter(id: number): Observable<void>{
-    return this.http.delete<any>(`${this.API_URL}/characters/${id}`)
+    const resp$ = this.http.delete<any>(`${this.API_URL}/characters/${id}`)
+    return resp$;
   }
 }

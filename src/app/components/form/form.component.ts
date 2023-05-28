@@ -17,7 +17,15 @@ export class FormComponent {
   constructor(private characterService: CharacterServiceService) { }
 
   submitForm(): void {
-    this.characterService.addNewCaracter(this.character).subscribe();
+    this.characterService.addNewCaracter(this.character).subscribe({
+      next: (data:any) => {
+        console.log(data);
+      },
+      error: (err) => {
+        console.error(err);
+      },
+      complete: () => window.location.reload()
+    })
   }
 
 }
