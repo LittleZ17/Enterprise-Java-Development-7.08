@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let character of characterList">
+    <a (click)="selectCharacter(character)">{{ character.name }}</a>
+    <app-detail [character]="character" [selectedCharacter]="selectedCharacter" (deleteCharacter)="deleteCharacter($event)"></app-detail>
+  </li>
+</ul>
+<app-form></app-form>

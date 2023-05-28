@@ -1,0 +1,8 @@
+
+<div *ngIf="selectedCharacter === character">
+    <p>Name: {{ character.name }}</p>
+    <p>Debt: {{ character.debt }}</p>
+    <p>Occupation: {{ character.occupation }}</p>
+    <p>Weapon: {{ character.weapon }}</p>
+    <button (click)="onDelete()">Delete</button>
+</div>
